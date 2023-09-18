@@ -22,3 +22,40 @@
     cursor: pointer;
   }
 }
+
+.App {
+  text-align: center;
+}
+
+.body {
+all:unset;
+}
+input {
+  all: unset;
+  width: 100%;
+}
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: #c4e9ff;
+  opacity: 1; 
+} 
+
+span {
+  margin: auto;
+}
+p{
+  margin: 0;
+}
+li {
+  padding: 0 40px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

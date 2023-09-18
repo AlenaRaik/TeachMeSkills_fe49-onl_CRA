@@ -3,6 +3,7 @@ import { Input } from '#ui/input/input';
 import { Button } from '#ui/button';
 import { setName } from './sign-up-form.slice';
 import { useAppDispatch, useAppSelector } from '#hooks';
+import { styled } from 'styled-components';
 
 export const SignUpForm: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -24,7 +25,7 @@ export const SignUpForm: React.FC = () => {
   */
 
   return (
-    <form>
+    <FormSignUp>
       <Input
         type="text"
         labelText="Name"
@@ -55,6 +56,13 @@ export const SignUpForm: React.FC = () => {
       <Button variant="primary" onClick={() => null}>
         Sign Up
       </Button>
-    </form>
+    </FormSignUp>
   );
 };
+
+const FormSignUp = styled.form`
+  border: 1px solid grey;
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+`;
