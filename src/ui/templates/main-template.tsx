@@ -38,7 +38,6 @@ const MainTemplateWrapper = styled.div`
 
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   background-color: var(--background-primary-color);
 `;
@@ -48,6 +47,7 @@ const ContentWithPaddings = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  margin: auto;
 `;
 
 const Main = styled.main`
@@ -68,9 +68,12 @@ const TitleContainer = styled.div`
 `;
 
 const BodyContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
+    border: 1px solid grey;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 20px;
 `;
 
 const Footer = styled.footer`
