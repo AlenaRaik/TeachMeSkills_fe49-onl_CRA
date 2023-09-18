@@ -84,7 +84,7 @@ import {
   `;
   const WrapperOther = styled.div``;
   const Card = styled.div`
-    padding: 3%;
+    padding: 15px;
   `;
   const CommandString = styled.div`
     display: flex;
@@ -92,7 +92,7 @@ import {
     justify-content: space-between;
   `;
   const ImageCard = styled.div`
-  height: 7rem;`;
+  width: 150px;`;
   const CardData = styled.div`
     max-height: 400px;
     display: flex;

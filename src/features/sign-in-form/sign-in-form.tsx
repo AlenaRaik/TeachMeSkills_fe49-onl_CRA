@@ -36,5 +36,8 @@ export const SignInForm: React.FC = () => {
 };
 
 const FormSignIn = styled.form`
-  width: 100%;
+  border: 1px solid grey;
+  width: 50%;
+  margin: auto;
+  padding: 20px;
 `;

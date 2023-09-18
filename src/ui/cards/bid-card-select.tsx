@@ -8,12 +8,12 @@ import { useState } from 'react';
 import { styled } from 'styled-components';
 import { CardProps } from './card-props';
 
-type BigPostCardProps = {
+export type BigCardSelectProps = {
   value: CardProps;
 };
 
-export const MiddleCard: React.FC<BigPostCardProps> = (
-  props: BigPostCardProps
+export const BigCardSelect: React.FC<BigCardSelectProps> = (
+  props: BigCardSelectProps
 ) => {
   const [isLiked, setLiked] = useState<boolean>(false);
   const [isDisliked, setDisliked] = useState<boolean>(false);
@@ -40,14 +40,15 @@ export const MiddleCard: React.FC<BigPostCardProps> = (
   }
   return (
     <div>
-      <MiddlCard>
+      <Card>
         <CardData>
-          <ImageCard>
-            <img src={props.value.image} alt="#"></img>
-          </ImageCard>
           <TextData>
             <p>{props.value.date}</p>
             <Header>{props.value.title}</Header>
+            <ImageCard>
+              <img src={props.value.image} alt="#"></img>
+            </ImageCard>
+            <p>{props.value.text}</p>
           </TextData>
         </CardData>
         <CommandString>
@@ -59,7 +60,6 @@ export const MiddleCard: React.FC<BigPostCardProps> = (
                 <FontAwesomeIcon icon={faThumbsUp} />
               )}
             </ButtonLike>
-            <p>{props.value.like}</p>
             <ButtonDislike onClick={() => dislike()}>
               {isDisliked ? (
                 <FontAwesomeIcon icon={faThumbsDown} color="black" />
@@ -67,27 +67,30 @@ export const MiddleCard: React.FC<BigPostCardProps> = (
                 <FontAwesomeIcon icon={faThumbsDown} />
               )}
             </ButtonDislike>
-            <p>{props.value.dislike}</p>
           </WrapperLike>
           <WrapperOther>
-            <ButtonPoints>...</ButtonPoints>
             <ButtonBookmark>
               <FontAwesomeIcon icon={faBookmark} />
+              <ButtonText>Add to favorites</ButtonText>
             </ButtonBookmark>
           </WrapperOther>
         </CommandString>
-      </MiddlCard>
+      </Card>
     </div>
   );
 };
+
+const Header = styled.h2`
+  color: #000000;
+`;
 const WrapperLike = styled.div`
   display: flex;
   align-items: center;
 `;
 const WrapperOther = styled.div``;
-const MiddlCard = styled.div`
-      max-width: 300px;
-      padding: 15px;
+const Card = styled.div`
+  width: 70%;
+  margin: auto;
 `;
 const CommandString = styled.div`
   display: flex;
@@ -95,46 +98,42 @@ const CommandString = styled.div`
   justify-content: space-between;
 `;
 const ImageCard = styled.div`
-  height: 300px;
-  width: 300px;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  margin-bottom: 20px;
 `;
 const CardData = styled.div``;
-const Header = styled.h2`
-  color: #000000;
-  font-size: 18px;
-`;
 
 const TextData = styled.div`
   text-align: left;
-  width: 90%;
   color: #989aa8;
-  padding: 1%;
+  padding: 1% 0;
 `;
 const ButtonLike = styled.button`
   width: 2rem;
   height: 2rem;
-  color: #c7c9d5;
+  color: #b5b5b7;
+  background-color: #daddea;
+  margin-right: 2px;
 `;
 const ButtonDislike = styled.button`
   width: 2rem;
   height: 2rem;
-  color: #c7c9d5;
+  color: #b5b5b7;
+  background-color: #daddea;
 `;
 const ButtonBookmark = styled.button`
-  width: 2rem;
+  width: 150px;
   height: 2rem;
-  color: #c7c9d5;
+  color: #b5b5b7;
+  background-color: #daddea;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   &:hover {
     color: #333333;
   }
 `;
 
-const ButtonPoints = styled.button`
-  width: 2rem;
-  height: 2rem;
-  color: #c7c9d5;
-  font-size: 28px;
-  &:hover {
-    color: #333333;
-  }
-`;
+const ButtonText = styled.p``;

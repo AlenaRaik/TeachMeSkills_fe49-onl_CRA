@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 type Props = {
   header: React.ReactNode;
-  backLink: React.ReactNode;
-  title: React.ReactNode;
+  backLink?: React.ReactNode;
+  title?: React.ReactNode;
   body: React.ReactNode;
   children?: never;
 };
@@ -34,7 +34,7 @@ export const MainTemplate: React.FC<Props> = ({
 
 const MainTemplateWrapper = styled.div`
   width: 100%;
-  height: 100dvh;
+  min-height: 100dvh;
 
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@ const MainTemplateWrapper = styled.div`
 `;
 
 const ContentWithPaddings = styled.div`
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -57,23 +57,16 @@ const Main = styled.main`
 
 const BackLinkContainer = styled.div`
   width: 100%;
-  height: 50px;
   text-align: start;
 `;
 
 const TitleContainer = styled.div`
   width: 100%;
-  height: 75px;
   text-align: start;
 `;
 
 const BodyContainer = styled.div`
-    border: 1px solid grey;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    padding: 20px;
+
 `;
 
 const Footer = styled.footer`
