@@ -14,16 +14,6 @@ export const SignUpForm: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmedPassword, setConfirmedPassword] = useState('');
 
-  /*
-  const tabItems = [
-    { id: '1', title: 'first' },
-    { id: '2', title: 'second' },
-    { id: '3', title: 'third' },
-  ];
-
-  const [activeTabId, setActiveTabId] = useState(tabItems[0].id);
-  */
-
   return (
     <FormSignUp>
       <Input

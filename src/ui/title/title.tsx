@@ -10,5 +10,5 @@ export const Title: React.FC<Props> = ({ children }) => {
 
 const TitleWrapper = styled.h1`
   font-size: 40px;
-  color: #333;
+  color: var(--text-title-color);
 `;

@@ -6,6 +6,7 @@
   --border-primary-color: gray;
   --border-accent-color: green;
   --like-secondery-color: black;
+  --text-title-color: #333;
   
   &.dark {
     --background-primary-color: black;
@@ -15,6 +16,7 @@
     --border-primary-color: gray;
     --border-accent-color: #ffaaff;
     --like-secondery-color: red;
+    --text-title-color: #a9a7a7;
   }
 
   & a {

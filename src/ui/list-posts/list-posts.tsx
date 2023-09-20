@@ -1,9 +1,9 @@
-import { styled } from "styled-components";
-import { CardProps } from "../cards/card-props";
-import { BigCard } from "../cards/big-card";
-import { cardArray } from "../../arrayData";
-import { MiddleCard } from "../cards/middle-card";
-import { SmallCard } from "../cards/small-card";
+import { styled } from 'styled-components';
+import { CardProps } from '../cards/card-props';
+import { BigCard } from '../cards/big-card';
+import { cardArray } from '../../arrayData';
+import { MiddleCard } from '../cards/middle-card';
+import { SmallCard } from '../cards/small-card';
 
 type ListPostCardProps = {
   value: CardProps[];
@@ -18,18 +18,15 @@ export const ListCard: React.FC<ListPostCardProps> = (
           <BigList>
             <BigCard value={cardArray[0]}></BigCard>
             <MiddleList>
-              <MiddleCard value={cardArray[1]}></MiddleCard>
-              <MiddleCard value={cardArray[2]}></MiddleCard>
-              <MiddleCard value={cardArray[3]}></MiddleCard>
-              <MiddleCard value={cardArray[4]}></MiddleCard>
+              {cardArray.slice(1, 5).map((element, id) => (
+                <MiddleCard key={id} value={element}></MiddleCard>
+              ))}
             </MiddleList>
           </BigList>
           <SmallList>
-            <SmallCard value={cardArray[5]}></SmallCard>
-            <SmallCard value={cardArray[6]}></SmallCard>
-            <SmallCard value={cardArray[7]}></SmallCard>
-            <SmallCard value={cardArray[8]}></SmallCard>
-            <SmallCard value={cardArray[9]}></SmallCard>
+            {cardArray.slice(5, 10).map((element, id) => (
+              <SmallCard key={id} value={element}></SmallCard>
+            ))}
           </SmallList>
         </WraperList>
       </Container>

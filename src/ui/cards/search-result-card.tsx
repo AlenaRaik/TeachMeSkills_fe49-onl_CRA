@@ -8,12 +8,12 @@ import { useState } from 'react';
 import { styled } from 'styled-components';
 import { CardProps } from './card-props';
 
-export type BigCardSelectProps = {
+export type SearchResultCardProps = {
   value: CardProps;
 };
 
-export const BigCardSelect: React.FC<BigCardSelectProps> = (
-  props: BigCardSelectProps
+export const SearchResultCard: React.FC<SearchResultCardProps> = (
+  props: SearchResultCardProps
 ) => {
   const [isLiked, setLiked] = useState<boolean>(false);
   const [isDisliked, setDisliked] = useState<boolean>(false);
@@ -42,101 +42,112 @@ export const BigCardSelect: React.FC<BigCardSelectProps> = (
     <div>
       <Card>
         <CardData>
+          <ImageCard>
+            <img src={props.value.image} alt="#"></img>
+          </ImageCard>
           <TextData>
             <HeaderDate>{props.value.date}</HeaderDate>
             <Header>{props.value.title}</Header>
-            <ImageCard>
-              <img src={props.value.image} alt="#"></img>
-            </ImageCard>
-            <p>{props.value.text}</p>
           </TextData>
         </CardData>
         <CommandString>
           <WrapperLike>
             <ButtonLike onClick={() => like()}>
               {isLiked ? (
-                <FontAwesomeIcon icon={faThumbsUp} color="black" />
+                <FontAwesomeIcon
+                  icon={faThumbsUp}
+                  color="var(--like-secondery-color)"
+                />
               ) : (
                 <FontAwesomeIcon icon={faThumbsUp} />
               )}
             </ButtonLike>
+            <p>{props.value.like}</p>
             <ButtonDislike onClick={() => dislike()}>
               {isDisliked ? (
-                <FontAwesomeIcon icon={faThumbsDown} color="black" />
+                <FontAwesomeIcon
+                  icon={faThumbsDown}
+                  color="var(--like-secondery-color)"
+                />
               ) : (
                 <FontAwesomeIcon icon={faThumbsDown} />
               )}
             </ButtonDislike>
+            <p>{props.value.dislike}</p>
           </WrapperLike>
           <WrapperOther>
+            <ButtonPoints>...</ButtonPoints>
             <ButtonBookmark>
               <FontAwesomeIcon icon={faBookmark} />
-              <ButtonText>Add to favorites</ButtonText>
             </ButtonBookmark>
           </WrapperOther>
         </CommandString>
       </Card>
+      <FooterDelimiter />
     </div>
   );
 };
-
-const Header = styled.h2`
-  color: var(--text-primary-color);;
-`;
 const WrapperLike = styled.div`
   display: flex;
   align-items: center;
 `;
 const WrapperOther = styled.div``;
-const Card = styled.div`
-  width: 70%;
-  margin: auto;
-`;
+const Card = styled.div``;
 const CommandString = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 const ImageCard = styled.div`
-  width: 400px;
-  height: 400px;
-  margin: auto;
-  margin-bottom: 20px;
+  width: 100px;
+  height: 100px;
 `;
-const CardData = styled.div``;
+const CardData = styled.div`
+  max-height: 100px;
+  display: flex;
+`;
+const Header = styled.p`
+  color: var(--text-primary-color);
+  font-size: 18px;
+  text-decoration: none;
+  padding: 2% 0;
+`;
 
 const TextData = styled.div`
   text-align: left;
+  width: 90%;
   color: #989aa8;
-  padding: 1% 0;
+  padding: 0 1%;
 `;
 const ButtonLike = styled.button`
   width: 2rem;
   height: 2rem;
-  color: #b5b5b7;
-  background-color: #daddea;
-  margin-right: 2px;
+  color: #c7c9d5;
 `;
 const ButtonDislike = styled.button`
   width: 2rem;
   height: 2rem;
-  color: #b5b5b7;
-  background-color: #daddea;
+  color: #c7c9d5;
 `;
 const ButtonBookmark = styled.button`
-  width: 150px;
+  width: 2rem;
   height: 2rem;
-  color: #b5b5b7;
-  background-color: #daddea;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  color: #c7c9d5;
   &:hover {
     color: #333333;
   }
 `;
 
-const ButtonText = styled.p``;
+const ButtonPoints = styled.button`
+  width: 2rem;
+  height: 2rem;
+  color: #c7c9d5;
+  font-size: 28px;
+  &:hover {
+    color: #333333;
+  }
+`;
+const FooterDelimiter = styled.hr``;
 
 const HeaderDate = styled.p`
   color: gray;
