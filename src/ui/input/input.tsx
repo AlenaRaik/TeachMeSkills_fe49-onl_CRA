@@ -25,6 +25,8 @@ const LabelText = styled.div`
 `;
 
 const InputWrapper = styled.input<{ $borderColor?: string }>`
+  width: 100%;
+  height: 30px;
   box-sizing: border-box;
   border: 1px solid ${({ $borderColor }) => $borderColor || '#ffffff'};
   background-color: #ffffff;

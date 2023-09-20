@@ -54,7 +54,7 @@ export const MiddleCard: React.FC<BigPostCardProps> = (
           <WrapperLike>
             <ButtonLike onClick={() => like()}>
               {isLiked ? (
-                <FontAwesomeIcon icon={faThumbsUp} color="black" />
+                <FontAwesomeIcon icon={faThumbsUp} color="var(--like-secondery-color)" />
               ) : (
                 <FontAwesomeIcon icon={faThumbsUp} />
               )}
@@ -62,7 +62,7 @@ export const MiddleCard: React.FC<BigPostCardProps> = (
             <p>{props.value.like}</p>
             <ButtonDislike onClick={() => dislike()}>
               {isDisliked ? (
-                <FontAwesomeIcon icon={faThumbsDown} color="black" />
+                <FontAwesomeIcon icon={faThumbsDown} color="var(--like-secondery-color)" />
               ) : (
                 <FontAwesomeIcon icon={faThumbsDown} />
               )}
@@ -100,7 +100,7 @@ const ImageCard = styled.div`
 `;
 const CardData = styled.div``;
 const Header = styled.h2`
-  color: #000000;
+  color: var(--text-primary-color);;
   font-size: 18px;
 `;
 

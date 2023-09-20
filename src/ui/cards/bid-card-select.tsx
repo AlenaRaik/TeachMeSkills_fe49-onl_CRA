@@ -81,7 +81,7 @@ export const BigCardSelect: React.FC<BigCardSelectProps> = (
 };
 
 const Header = styled.h2`
-  color: #000000;
+  color: var(--text-primary-color);;
 `;
 const WrapperLike = styled.div`
   display: flex;

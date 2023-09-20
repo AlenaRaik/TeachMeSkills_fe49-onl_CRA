@@ -16,7 +16,7 @@ export const Success: React.FC = () => {
   );
 };
 
-export const SuccessForm: React.FC = () => {
+const SuccessForm: React.FC = () => {
   return (
     <FormSignUp>
       <TextSuccess>
@@ -33,7 +33,6 @@ export const SuccessForm: React.FC = () => {
 };
 
 const FormSignUp = styled.form`
-  //  width: 100%;
   border: 1px solid grey;
   width: 50%;
   margin: auto;
@@ -44,4 +43,5 @@ const TextSuccess = styled.div`
 `;
 const TextValueSuccess = styled.p`
   text-align: left;
+  color: var(--text-primary-color);
 `;
