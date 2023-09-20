@@ -8,12 +8,12 @@ import { useState } from 'react';
 import { styled } from 'styled-components';
 import { CardProps } from './card-props';
 
-type BigPostCardProps = {
+export type SearchResultCardProps = {
   value: CardProps;
 };
 
-export const MiddleCard: React.FC<BigPostCardProps> = (
-  props: BigPostCardProps
+export const SearchResultCard: React.FC<SearchResultCardProps> = (
+  props: SearchResultCardProps
 ) => {
   const [isLiked, setLiked] = useState<boolean>(false);
   const [isDisliked, setDisliked] = useState<boolean>(false);
@@ -40,13 +40,13 @@ export const MiddleCard: React.FC<BigPostCardProps> = (
   }
   return (
     <div>
-      <MiddlCard>
+      <Card>
         <CardData>
           <ImageCard>
             <img src={props.value.image} alt="#"></img>
           </ImageCard>
           <TextData>
-            <p>{props.value.date}</p>
+            <HeaderDate>{props.value.date}</HeaderDate>
             <Header>{props.value.title}</Header>
           </TextData>
         </CardData>
@@ -54,7 +54,10 @@ export const MiddleCard: React.FC<BigPostCardProps> = (
           <WrapperLike>
             <ButtonLike onClick={() => like()}>
               {isLiked ? (
-                <FontAwesomeIcon icon={faThumbsUp} color="var(--like-secondery-color)" />
+                <FontAwesomeIcon
+                  icon={faThumbsUp}
+                  color="var(--like-secondery-color)"
+                />
               ) : (
                 <FontAwesomeIcon icon={faThumbsUp} />
               )}
@@ -62,7 +65,10 @@ export const MiddleCard: React.FC<BigPostCardProps> = (
             <p>{props.value.like}</p>
             <ButtonDislike onClick={() => dislike()}>
               {isDisliked ? (
-                <FontAwesomeIcon icon={faThumbsDown} color="var(--like-secondery-color)" />
+                <FontAwesomeIcon
+                  icon={faThumbsDown}
+                  color="var(--like-secondery-color)"
+                />
               ) : (
                 <FontAwesomeIcon icon={faThumbsDown} />
               )}
@@ -76,7 +82,8 @@ export const MiddleCard: React.FC<BigPostCardProps> = (
             </ButtonBookmark>
           </WrapperOther>
         </CommandString>
-      </MiddlCard>
+      </Card>
+      <FooterDelimiter />
     </div>
   );
 };
@@ -85,30 +92,32 @@ const WrapperLike = styled.div`
   align-items: center;
 `;
 const WrapperOther = styled.div``;
-const MiddlCard = styled.div`
-      max-width: 300px;
-      padding: 15px;
-`;
+const Card = styled.div``;
 const CommandString = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 const ImageCard = styled.div`
-  height: 300px;
-  width: 300px;
+  width: 100px;
+  height: 100px;
 `;
-const CardData = styled.div``;
-const Header = styled.h2`
-  color: var(--text-primary-color);;
+const CardData = styled.div`
+  max-height: 100px;
+  display: flex;
+`;
+const Header = styled.p`
+  color: var(--text-primary-color);
   font-size: 18px;
+  text-decoration: none;
+  padding: 2% 0;
 `;
 
 const TextData = styled.div`
   text-align: left;
   width: 90%;
   color: #989aa8;
-  padding: 1%;
+  padding: 0 1%;
 `;
 const ButtonLike = styled.button`
   width: 2rem;
@@ -137,4 +146,9 @@ const ButtonPoints = styled.button`
   &:hover {
     color: #333333;
   }
+`;
+const FooterDelimiter = styled.hr``;
+
+const HeaderDate = styled.p`
+  color: gray;
 `;

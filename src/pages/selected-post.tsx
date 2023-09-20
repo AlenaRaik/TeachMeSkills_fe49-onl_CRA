@@ -3,7 +3,7 @@ import { Menu } from '#ui/header/menu';
 import { cardArray } from "../arrayData";
 import { BigCardSelect } from "#ui/cards/bid-card-select";
 
-export const SelectPost: React.FC = () => {
+export const SelectedPost: React.FC = () => {
     return (
       <MainTemplate
         header={<Menu />}

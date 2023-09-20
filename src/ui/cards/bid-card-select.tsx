@@ -43,7 +43,7 @@ export const BigCardSelect: React.FC<BigCardSelectProps> = (
       <Card>
         <CardData>
           <TextData>
-            <p>{props.value.date}</p>
+            <HeaderDate>{props.value.date}</HeaderDate>
             <Header>{props.value.title}</Header>
             <ImageCard>
               <img src={props.value.image} alt="#"></img>
@@ -81,7 +81,7 @@ export const BigCardSelect: React.FC<BigCardSelectProps> = (
 };
 
 const Header = styled.h2`
-  color: #000000;
+  color: var(--text-primary-color);;
 `;
 const WrapperLike = styled.div`
   display: flex;
@@ -137,3 +137,7 @@ const ButtonBookmark = styled.button`
 `;
 
 const ButtonText = styled.p``;
+
+const HeaderDate = styled.p`
+  color: gray;
+`;

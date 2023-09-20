@@ -5,6 +5,8 @@
   --text-secondary-color: gray;
   --border-primary-color: gray;
   --border-accent-color: green;
+  --like-secondery-color: black;
+  --text-title-color: #333;
   
   &.dark {
     --background-primary-color: black;
@@ -13,6 +15,8 @@
     --text-secondary-color: gray;
     --border-primary-color: gray;
     --border-accent-color: #ffaaff;
+    --like-secondery-color: red;
+    --text-title-color: #a9a7a7;
   }
 
   & a {
@@ -30,10 +34,7 @@
 .body {
 all:unset;
 }
-input {
-  all: unset;
-  width: 100%;
-}
+
 button {
   all: unset;
   cursor: pointer;
@@ -49,6 +50,7 @@ span {
 }
 p{
   margin: 0;
+  color: var(--text-primary-color);
 }
 li {
   padding: 0 40px;
