@@ -50,7 +50,7 @@ export const MiddleCard: React.FC<BigPostCardProps> = (
             <Header>{props.value.title}</Header>
           </TextData>
         </CardData>
-        <CommandString>
+        <CommandString onClick={(event) => {event.stopPropagation(); event.preventDefault()}}>
           <WrapperLike>
             <ButtonLike onClick={() => like()}>
               {isLiked ? (

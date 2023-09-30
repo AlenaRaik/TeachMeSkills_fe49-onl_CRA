@@ -10,6 +10,7 @@ import { CardProps } from './card-props';
 
 export type BigCardSelectProps = {
   value: CardProps;
+  homeLink: React.ReactNode;
 };
 
 export const BigCardSelect: React.FC<BigCardSelectProps> = (
@@ -43,6 +44,7 @@ export const BigCardSelect: React.FC<BigCardSelectProps> = (
       <Card>
         <CardData>
           <TextData>
+          {props.homeLink}
             <HeaderDate>{props.value.date}</HeaderDate>
             <Header>{props.value.title}</Header>
             <ImageCard>

@@ -43,9 +43,10 @@ const TabWrapper = styled.li<{ $isActive: boolean }>`
 const TabButton = styled.button`
   all: unset;
   cursor: pointer;
+  color: var(--text-primary-color);
 
   &:hover {
-    color: #213efa;
+    color: #677bf9;
   }
 `;
 

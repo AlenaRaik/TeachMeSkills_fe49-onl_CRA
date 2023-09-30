@@ -48,7 +48,7 @@ import {
               <img src={props.value.image} alt="#"></img>
             </ImageCard>
           </CardData>
-          <CommandString>
+          <CommandString onClick={(event) => {event.stopPropagation(); event.preventDefault()}}>
             <WrapperLike>
               <ButtonLike onClick={() => like()}>
                 {isLiked ? ( 

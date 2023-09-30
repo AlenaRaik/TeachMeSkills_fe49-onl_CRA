@@ -9,7 +9,7 @@
   --text-title-color: #333;
   
   &.dark {
-    --background-primary-color: black;
+    --background-primary-color: rgb(45, 44, 44);
     --background-accent-color: #cccccc;
     --text-primary-color: white;
     --text-secondary-color: gray;
@@ -22,7 +22,6 @@
   & a {
     all: unset;
     color: var(--text-primary-color);
-    text-decoration: underline;
     cursor: pointer;
   }
 }
