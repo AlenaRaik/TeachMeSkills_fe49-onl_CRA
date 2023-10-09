@@ -1,11 +1,12 @@
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { RefObject, useEffect, useRef, useState } from "react";
-import Hamburger from "./burger";
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { RefObject, useEffect, useRef, useState } from 'react';
+import Hamburger from './burger';
+import { ThemeSwitcher } from '#features/theme-switcher/theme-switcher';
+import { Link } from 'react-router-dom';
 
-
-const nameUser: string = "Artem Malkin";
+const nameUser: string = 'Artem Malkin';
 
 const useOnClickOutside = (
   ref: RefObject<HTMLDivElement>,
@@ -23,9 +24,9 @@ const useOnClickOutside = (
       closeMenu();
     };
 
-    document.addEventListener("mousedown", listener);
+    document.addEventListener('mousedown', listener);
     return () => {
-      document.removeEventListener("mousedown", listener);
+      document.removeEventListener('mousedown', listener);
     };
   }, [ref, closeMenu]);
 };
@@ -37,9 +38,9 @@ function InitUser(props: { name: string }) {
   return (
     <span>
       {props.name
-        .split(" ", 2)
+        .split(' ', 2)
         .map((word) => word[0])
-        .join("")
+        .join('')
         .toUpperCase()}
     </span>
   );
@@ -52,8 +53,6 @@ export const Menu: React.FC<MenuProps> = (props: MenuProps) => {
   const node = useRef<HTMLDivElement>(null);
   const close = () => setOpen(false);
 
-
-
   useOnClickOutside(node, () => setOpen(false));
 
   return (
@@ -64,7 +63,9 @@ export const Menu: React.FC<MenuProps> = (props: MenuProps) => {
         </Burger>
         <Search>
           <SearchInpyt placeholder="Search..." />
-          <SearchLink><FontAwesomeIcon icon={faXmark} /></SearchLink>
+          <SearchLink>
+            <FontAwesomeIcon icon={faXmark} />
+          </SearchLink>
         </Search>
         <ButtonSearch>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
@@ -80,29 +81,78 @@ export const Menu: React.FC<MenuProps> = (props: MenuProps) => {
       </Header>
 
       <StyledMenu open={open}>
-        <StyledButton>
-          <InitUser name={nameUser} />
-        </StyledButton>
-        <StyledLink onClick={() => close()}>
-          <NameUser name={nameUser} />
-        </StyledLink>
+        <StyledMenuUserList>
+          <StyledMenyUser>
+            <StyledButton>
+              <InitUser name={nameUser} />
+            </StyledButton>
+            <StyledLink onClick={() => close()}>
+              <NameUser name={nameUser} />
+            </StyledLink>
+          </StyledMenyUser>
+          <StyledUserMenuAction>
+            <Link to={`/posts`}>
+              <StyledMenuAction>Home</StyledMenuAction>
+            </Link>
+          </StyledUserMenuAction>
+          <StyledUserMenuAction>
+            <StyledMenuAction>Add post</StyledMenuAction>
+          </StyledUserMenuAction>
+        </StyledMenuUserList>
+        <ButtonGroup>
+          <ThemeSwitcher />
+          <Link to={`/sign-in`}>
+            <ButtonSignIn>Sign In</ButtonSignIn>
+          </Link>
+        </ButtonGroup>
       </StyledMenu>
-
     </div>
   );
 };
 
-const StyledMenu = styled.nav<{ open: boolean }>`
-  width: 30%;
-  position: relative;
+const ButtonSignIn = styled.button`
+  width: 100%;
+  margin: auto;
+  padding: 1rem 0;
+  background-color: #a7a7a7;
+`;
+
+const ButtonGroup = styled.div``;
+
+const StyledMenuAction = styled.a`
+  &:hover {
+    color: #677bf9;
+  }
+`;
+const StyledUserMenuAction = styled.li`
+  border-bottom: 1px solid var(--background-primary-color);
+  padding: 1rem 0;
+`;
+const StyledMenuUserList = styled.ul`
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+  margin-bottom: calc(100vh - 330px);
+`;
+const StyledMenyUser = styled.li`
   background-color: #3a20ff;
-  z-index: 1;
+  border: 1px solid var(--background-primary-color);
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   padding: 1rem 0;
+  border-top: none;
+`;
+
+const StyledMenu = styled.nav<{ open: boolean }>`
+  width: 25%;
+  height: calc(100vh - 50px);
+  position: absolute;
+  background-color: var(--menu-primary-color);
+  z-index: 1;
+  display: ${({ open }) => (open ? ' ' : 'none')};
   transition: transform 0.3s ease-in-out;
-  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
+  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
 `;
 
 const StyledLink = styled.a`
@@ -141,13 +191,13 @@ const ButtonSearch = styled.button`
 `;
 
 const User = styled.div`
-  border-left: 1px solid #6872ff;
+  border-left: 1px solid var(--background-primary-color);
   width: 20%;
-  height: 2.5rem;
+  height: 100%;
   background-color: #0000ff;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 `;
 
 const Header = styled.header`
@@ -155,6 +205,8 @@ const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   background-color: #0000ff;
+  height: 50px;
+  border: 1px solid var(--background-primary-color);
 `;
 
 const Burger = styled.div`
@@ -167,9 +219,10 @@ const Search = styled.div`
   width: 70%;
   display: flex;
   background-color: #6872ff;
-  color: white;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  height: 50px;
+  border: 1px solid var(--background-primary-color);
 `;
 
 const SearchLink = styled.a`

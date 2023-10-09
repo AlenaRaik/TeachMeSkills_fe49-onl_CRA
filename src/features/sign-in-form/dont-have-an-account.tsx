@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 type Props = {
@@ -8,7 +9,9 @@ export const TextDontHaveAccount: React.FC<Props> = ({ children }) => {
   return (
     <TextAccountWrapper>
       <TextLink>{children}</TextLink>
-      <SignUpLink>Sign Up</SignUpLink>
+      <Link to={`/sign-up`}>
+        <SignUpLink>Sign Up</SignUpLink>
+      </Link>
     </TextAccountWrapper>
   );
 };
@@ -21,4 +24,6 @@ const TextAccountWrapper = styled.div`
 
 const TextLink = styled.p``;
 
-const SignUpLink = styled.a``;
+const SignUpLink = styled.p`
+  text-decoration: underline;
+`;
